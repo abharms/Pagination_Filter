@@ -1,8 +1,10 @@
 
 .pagination ul{
-	
+	width: 20%;
+	margin: 0 auto;
 }
 
 .paginationBtns {
 	float: left;
+	padding: 3px;
 }
