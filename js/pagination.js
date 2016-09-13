@@ -34,7 +34,10 @@ var view = {
 		//append li's to .pagination div
 		for (var i = 0; i < $numberOfPages; i++) {
 			$('.pagination').find('ul').append('<li class="paginationBtns">'+ '<a href="#">'+ (i + 1) + '</a>' + '</li>');
-		}	
+		}
+
+		//add active class to first pagination button on load
+		$("li a:eq(0)").addClass('active');	
 	},
 
 	paginationFunctionality: function($studentListItem, $itemsPerPage) {
@@ -59,9 +62,9 @@ var view = {
 			//show items
 			$itemsToShow.show();
 
-			//toggle active class NOT WORKING
-			$('li a').addClass('active');
+			//toggle active		
 			$('li a').removeClass('active');
+			$(this).addClass('active');
 
 		});
 	},
@@ -106,7 +109,8 @@ var view = {
 					$(this).hide();
 				}
 			});
-			view.paginationFunctionality($studentListItem, $itemsPerPage);	
+			view.paginationFunctionality($studentListItem, $itemsPerPage);
+			view.hideItems($studentListItem, $itemsPerPage);	
 		});
     }	
 }
